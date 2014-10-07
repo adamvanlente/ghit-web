@@ -17,6 +17,7 @@ var passport     = require('passport');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var configDB     = require('./config/database.js');
+var auth         = require('./config/auth.js');
 
 // Connect to database.
 mongoose.connect(configDB.url);
@@ -29,7 +30,7 @@ app.use(bodyParser());
 
 // Get Passport set up.
 require('./config/passport')(passport);
-app.use(session({ secret: 'ghit8654778' }));
+app.use(session({ secret: auth.appSecret }));
 app.use(passport.initialize());
 app.use(passport.session());
 

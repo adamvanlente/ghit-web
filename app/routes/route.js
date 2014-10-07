@@ -4,6 +4,7 @@
 
 // User mongoose model.
 var User       		   = require('../models/user');
+var StoredUser       = require('../models/stored_user');
 
 // Get the authorization variables.
 var configAuth       = require('../../config/auth');
@@ -20,17 +21,59 @@ module.exports = function(app, passport) {
      res.render('index.jade', { user : req.user });
 	});
 
-  app.get('/getUserToken', function(req, res) {
+  // ====================================
+  // ====================================
+  // ALL USER INFO ======================
+  // ====================================
+  // ====================================
+  app.get('/allUsers', function(req, res) {
 
-    // will/may want different behavior here for iphone vs web browsers.
-    var userAgent = res.req.headers["user-agent"];
-    var isIphone = userAgent.search('iPhone') != -1;
+      StoredUser.findAll(function(doc) {
 
-    res.writeHead(302, {
-        'Location': configAuth.urlScheme + req.user.token + '/' + req.user.username
-    });
-    res.end();
+          var response        = {};
+          response.count      = doc.length;
+          response.results    = doc;
+
+          res.json(response);
+      });
+
 
   });
 
+  // ====================================
+  // ====================================
+  // STORE USER INFO ====================
+  // ====================================
+  // ====================================
+  app.get('/storeUser/:email/:name/:username/:privateCount/:publicCount', function(req, res) {
+
+      var email        = req.params.email;
+      var name         = req.params.name;
+      var username     = req.params.username;
+      var privateCount = req.params.privateCount;
+      var publicCount  = req.params.publicCount;
+
+      console.log(email, name, username, privateCount, publicCount);
+
+      StoredUser.findByUsername(username, function(doc) {
+        if (doc) {
+            console.log('wont store, found one');
+            doc.type = 'found existing';
+            res.json(doc);
+        } else {
+
+            var newUser           = {};
+            newUser.email         = email;
+            newUser.name          = name;
+            newUser.username      = username;
+            newUser.privateRepos  = privateCount;
+            newUser.publicRepos   = publicCount;
+
+            StoredUser.createNew(newUser, function(doc) {
+                doc.type = 'created new';
+                res.json(doc);
+            });
+        }
+      });
+  });
 };
