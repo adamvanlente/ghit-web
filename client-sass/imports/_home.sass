@@ -3,22 +3,86 @@
 
   span
     display: block
-    background-image: url('../img/logo_clear_thin.png')
-    height: 160px
-    width: 400px
-    background-size: 250px
+    background-image: url("../img/gray_logo_no_shadow.png")
+    height: 60px
+    width: 300px
+    background-size: 100px
     background-repeat: no-repeat
     background-position: center
-    padding: 48px 0
+    padding: 32px
     margin: 0 auto
     text-align: center
 
   p
     display: block
     margin: 0 auto
-    width: 80%
+    width: 95%
     text-align: center
     font-family: "Lato", sans-serif
-    font-weight: 100
-    color: #fff
+    font-weight: 300
+    color: rgb(241, 54, 54)
     font-size: 18px
+    +break-for(iphone)
+      font-size: 24px
+      font-weight: 400
+      color: #B9B9B9
+      font-family: "Lato", sans-serif
+      font-weight: 300
+
+.nav_block
+  display: block
+  background: rgba(253, 252, 252, 0.4)
+  width: 100%
+  min-height: 100px
+  margin-top: 24px
+  box-shadow: 0 2px 25px rgba(0,0,0,00.05)
+
+  .nav_holder
+    display: block
+    width: 800px
+    margin: 0 auto
+    +break-for(iphone)
+      width: 300px
+
+  .image
+    display: inline-block
+    height: 317px
+    width: 400px
+    background-size: 265px
+    background-repeat: no-repeat
+    background-position: 115px 8px
+    +break-for(iphone)
+      display: block
+      height: 417px
+      width: 300px
+      background-size: 265px
+      background-repeat: no-repeat
+      background-position: center 10px
+      margin: 0 auto
+
+
+  .phone_1
+    background-image: url('../img/phone_1.png')
+
+  .text
+    display: inline-block
+    vertical-align: middle
+    height: 350px
+    width: 305px
+    font-family: "Helvetica Neue", sans-serif
+    font-weight: 100
+    color: #333333
+    font-size: 28px
+    text-align: right
+    +break-for(iphone)
+      display: block
+      height: 75px
+      width: 300px
+      font-family: "Helvetica Neue", sans-serif
+      font-weight: 100
+      color: #333333
+      font-size: 24px
+      text-align: center
+      vertical-align: middle
+      padding: 24px 0
+      margin-top: 24px auto

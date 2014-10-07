@@ -4,3 +4,4 @@ node_modules
 public
 .sass-cache
 app/routes
+.DS_Store
