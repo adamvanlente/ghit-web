@@ -2,22 +2,50 @@ extends components/base
 
 block append content
 
-  div.ghitMain
-    span
-    p
-      | a github issue tracker for iOS
-
+  include components/header
 
   div.nav_block
 
-    div.nav_holder
+    div.ieBlock
+      | You have arrived at a site for an iPhone app.  This app is made for github.  If you are
+      | honestly interested in an iPhone app for github, and still using an incredibly
+      | outdated version of internet explorer, you need to take a hard look at the choices
+      | your're making in your life.  Please download
+      | <a href="https://www.mozilla.org/en-US/firefox/new/" target="new">firefox</a>
+      | , <a href="https://www.google.com/chrome/" target="new">chrome</a>,
+      | or something else and start putting your life back together.  You can still download
+      | the ghit app though.  Just click below.
+
+
+    div.nav_holder#one
       span.text.right.header-text
         | Manage your github issues with one simple app
       span.image.phone_1
 
-    div.nav_holder
+    div.nav_holder#two
       span.text.left.mobile
         | View all your repos and their open issues quickly.  Toggle visiblity of private repos.
       span.image.phone_2
       span.text.left.desktop
         | View all your repos and their open issues quickly.  Toggle visiblity of private repos.
+
+    div.nav_holder#three
+      span.text.right.mobile
+        | View your current issues and easily create new ones.
+      span.text.right.desktop
+        | View your current issues and easily create new ones.
+      span.image.phone_3
+
+    div.nav_holder#four
+      span.text.left.mobile
+        | Quickly update all aspects of your issues.  View &amp; add comments.
+      span.image.phone_4
+      span.text.left.desktop
+        | Quickly update all aspects of your issues.  View &amp; add comments.
+
+
+  a.app_store(href="")
+    div.icon
+      i(class="fa fa-apple")
+    div.text
+      | download from the app store

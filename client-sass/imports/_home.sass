@@ -1,54 +1,79 @@
-.ghitMain
+.ieBlock
   display: none
+  width: 500px
+  margin: 100px auto
+  font-family: "Arial", sans-serif
+  font-weight: 100
 
+.header
+  display: block
+  position: fixed
+  font-family: "Lato", sans-serif
+  font-weight: 100
+  top: 0
+  left: 0
+  right: 0
+  background: #F8F8F8
+  z-index: 2
   span
-    display: block
-    background-image: url("../img/gray_logo_no_shadow.png")
-    height: 60px
-    width: 300px
-    background-size: 100px
-    background-repeat: no-repeat
-    background-position: center
-    padding: 32px
-    margin: 0 auto
-    text-align: center
+    display: inline-block
+    padding: 12px 24px
+    font-size: 20px
 
-  p
-    display: block
-    margin: 0 auto
-    width: 95%
-    text-align: center
-    font-family: "Lato", sans-serif
-    font-weight: 300
-    color: rgb(241, 54, 54)
-    font-size: 18px
-    +break-for(iphone)
-      font-size: 24px
-      font-weight: 400
-      color: #B9B9B9
-      font-family: "Lato", sans-serif
-      font-weight: 300
+    a
+      text-decoration: none
+      color: #333
+      cursor: pointer
+      +trans($easybreezy)
+      &:hover
+        opacity: 0.8
+
+      .fa
+        font-size: 16px
+        margin-right: 6px
+
+    .apple_store_link
+      margin-right: 24px
+
+  .left
+    text-align: left
+    label
+      color: rgba(179, 179, 179, 1)
+      margin-left: 6px
+      +break-for(iphone)
+        display: none
+  .right
+    text-align: right
+    float: right
 
 .nav_block
   display: block
-  background: rgba(253, 252, 252, 0.4)
   width: 100%
   min-height: 100px
   margin-top: 24px
-  box-shadow: 0 2px 25px rgba(0,0,0,00.05)
   +break-for(iphone)
     margin: 0
     padding: 0
 
-
   .nav_holder
     display: block
     width: 800px
-    margin: 0 auto
-    border-bottom: 3px solid #DCDCDC
+    margin: 120px auto
+    border-bottom: 5px solid gainsboro
+    height: 425px
+    +trans($quickie)
+    +break-for(ipad)
+      width: 500px
+      margin: 150px auto
+      margin-bottom: 0px
+      border-bottom: 5px solid #DCDCDC
+      height: auto
     +break-for(iphone)
       width: 300px
+      margin: 50px auto
+      margin-bottom: 0px
       border-bottom: 5px solid #DCDCDC
+      height: auto
 
   .image
     display: inline-block
@@ -57,6 +82,14 @@
     background-size: 265px
     background-repeat: no-repeat
     background-position: center 28px
+    +break-for(ipad)
+      display: block
+      height: 500px
+      width: 400px
+      background-size: 350px
+      background-repeat: no-repeat
+      background-position: center 10px
+      margin: 0 auto
     +break-for(iphone)
       display: block
       height: 417px
@@ -71,6 +104,10 @@
     background-image: url('../img/phone_1.png')
   .phone_2
     background-image: url('../img/phone_2.png')
+  .phone_3
+    background-image: url('../img/phone_3.png')
+  .phone_4
+    background-image: url('../img/phone_4.png')
 
   .right
     text-align: right
@@ -79,11 +116,15 @@
 
   .mobile
     display: none
+    +break-for(ipad)
+      display: block
     +break-for(iphone)
       display: block
 
   .desktop
     display: inline-block
+    +break-for(ipad)
+      display: none
     +break-for(iphone)
       display: none
 
@@ -95,16 +136,25 @@
   .text
     vertical-align: top
     width: 400px
-    font-family: "Helvetica Neue", sans-serif
+    font-family: "Lato", sans-serif
     font-weight: 100
     color: #333333
     font-size: 28px
     margin-top: 125px
-    text-shadow: 0 2px 2px rgba(0,0,0,0.05)
+    +break-for(ipad)
+      width: 500px
+      font-family: "Lato", sans-serif
+      font-weight: 100
+      color: #333333
+      font-size: 32px
+      text-align: center
+      vertical-align: middle
+      padding: 24px 0
+      margin: 0 auto
+      margin-top: 25px
     +break-for(iphone)
-      height: 75px
       width: 300px
-      font-family: "Helvetica Neue", sans-serif
+      font-family: "Lato", sans-serif
       font-weight: 100
       color: #333333
       font-size: 24px
@@ -113,3 +163,38 @@
       padding: 24px 0
       margin: 0 auto
       margin-top: 25px
+
+
+.app_store
+  display: block
+  font-family: "Lato", sans-serif
+  font-size: 16px
+  font-weight: 100
+  text-decoration: none
+  color: white
+  background: rgb(228, 74, 74)
+  width: 300px
+  margin: 0 auto
+  margin-bottom: 200px
+  padding: 24px
+  text-align: center
+  border-radius: 1px
+  cursor: pointer
+  +trans($easybreezy)
+  &:hover
+    opacity: 0.8
+
+  +break-for(ipad)
+    margin-top: 200px
+  +break-for(iphone)
+    margin-top: 100px
+    width: 250px
+
+  .icon
+    display: block
+    font-size: 24px
+  .text
+    display: block
+    margin-top: 12px
+    +break-for(iphone)
+      font-size: 32px
