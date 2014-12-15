@@ -5,6 +5,7 @@
 // User mongoose model.
 var User       		   = require('../models/user');
 var StoredUser       = require('../models/stored_user');
+var ErrorMessage       = require('../models/error_message');
 
 // Get the authorization variables.
 var configAuth       = require('../../config/auth');
@@ -54,8 +55,23 @@ module.exports = function(app, passport) {
 
           res.json(response);
       });
+  });
 
+  // ====================================
+  // ====================================
+  // LOG AN ERROR MESSAGE
+  // ====================================
+  // ====================================
+  app.get('/errorMsg/:msg', function(req, res) {
 
+      var msg                  = req.params.msg;
+
+      var newMessage           = {};
+      newMessage.message       = msg;
+
+      ErrorMessage.createNew(newMessage, function(doc) {
+        res.json(doc);
+      });
   });
 
   // ====================================
